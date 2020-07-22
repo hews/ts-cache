@@ -82,6 +82,10 @@ export interface DefaultAdapterConstructorOptions
 }
 export type DefaultOpts = Partial<DefaultAdapterConstructorOptions>;
 
+interface DefaultAdapterConstructor<K extends Key, V extends Val> {
+  new (opts: DefaultOpts): CacheInterface<K, V>;
+}
+
 // DefaultAdapter acts as a thin wrapper around a native Map object,
 // implementing the basic Cache interface with some added options for
 // calculating the cache's memory pressure ("usage"/"size") and
@@ -124,7 +128,7 @@ export default class DefaultAdapter<K extends Key, V extends Val>
 
   dispose: DisposeCb;
 
-  constructor(opts: Partial<DefaultAdapterConstructorOptions> = {}) {
+  constructor(opts: DefaultOpts = {}) {
     this.size = opts.size ?? Infinity;
     this.ttl = opts.ttl ?? Infinity;
     this.dispose = opts.dispose ?? (() => {});

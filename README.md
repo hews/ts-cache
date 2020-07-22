@@ -1,6 +1,6 @@
-# TS-Cache
+# TypeScript Cache
 
-## WIP
+## 👷‍♀️ Work in progress
 
 A type-consistent, in-memory cache for TypeScript/JavaScript. The API
 should stay consistent across multiple "storage adapter" implementations
@@ -52,4 +52,4 @@ See [`./examples`](examples) (for now).
 
 ---
 
-Copyright © 2020 Philip Hughes <p@hews.co>
+Copyright © 2020 Philip Hughes &gt;p@hews.co&lt;
