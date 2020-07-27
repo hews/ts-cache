@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint"
+      "pre-commit": "yarn lint-staged"
     }
   },
   "lint-staged": {
@@ -46,6 +46,7 @@
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir lib --ignore \"**/*.test.ts\" --extensions \".ts,.tsx\" --source-maps inline",
     "lint": "prettier --write \"{src,examples}/**/*\" && eslint --fix --ext .ts --ext .js \"./{src,examples}/*\"",
+    "lint-staged": "pretty-quick \"{src,examples}/**/*\"",
     "bundle": "rollup -c",
     "test": "jest",
     "examples": "ts-node examples/example.ts && node examples/example.js",
